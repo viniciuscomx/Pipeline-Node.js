@@ -1,0 +1,29 @@
+name: Pipeline node.js
+
+on: 
+  push: 
+    branches: [main]
+  pull_request: 
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonando o repositório
+        uses: actions/checkout@v4
+
+      - name: usando Node.js 20
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+
+      - name: instalando dependências
+        run: npm ci
+
+      - name: Rodando testes
+        run: npm run build
+
+      - name: finalizado com sucesso!
+        run: echo "tudo certo! Projeto testado e buildado!
