@@ -20,7 +20,7 @@ jobs:
           node-version: 20
 
       - name: instalando dependências
-        run: npm ci
+        run: npm install
 
       - name: Rodando build
         run: npm run build
